@@ -6,6 +6,13 @@ Bump the data `version` and note it here whenever the saved-data shape changes.
 
 ---
 
+## [3.14.0] — 2026-10-27 — App identity refresh and documentation
+
+### Changed
+- Refreshed the installed-app icon artwork for standard, maskable, and Apple touch sizes.
+- Expanded the README with current feature, data, privacy, and code-flow details.
+- Service-worker cache bumped to `v3.14.0`; saved data shape unchanged.
+
 ## [3.13.0] — 2026-10-16 — Income/expense chart with past, future and expected returns; bonuses removed
 
 **Fallback:** `FinanceApp-v3.12.0.zip`. Saved data: employers no longer have `bonuses` (see below); everything else unchanged.
