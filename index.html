@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WPOx5vxs2ziuLDqXnK0Z0+5/UvFfiCjU7cx1/tRrasc='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="theme-color" id="themeColor" content="#111821">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Finance">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<title>Finance Tracker</title>
+<script>
+  // Set the theme before first paint to avoid a light flash in dark mode.
+  (function () {
+    var t = 'light';
+    try { t = localStorage.getItem('finance-tracker-theme-v1') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">€</span><span class="brand-name">Finance Tracker</span></div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" data-tab="projections" aria-controls="view-projections">Projections</button>
+      <button role="tab" data-tab="cashflow" aria-controls="view-cashflow">Income &amp; expenses</button>
+    </nav>
+    <div class="top-actions">
+      <div class="autosave-pill" id="autosavePill"><span class="autosave-dot"></span><span id="autosaveText">Saved to this browser</span></div>
+      <details class="menu" id="dataMenu">
+        <summary class="ghost-btn" aria-label="Data menu">Data ▾</summary>
+        <div class="menu-pop">
+          <button id="installBtn" hidden>Install app on this device</button>
+          <p class="menu-note" id="iosNote" hidden>To install on iPhone: tap Share, then “Add to Home Screen”.</p>
+          <button id="shareBtn" hidden>Share backup…</button>
+          <button id="exportBtn">Export backup (JSON)</button>
+          <button id="importBtn">Import backup…</button>
+          <button id="resetBtn" class="danger">Reset to demo data</button>
+        </div>
+      </details>
+      <input type="file" id="importFile" class="file-input" accept="application/json">
+      <button class="theme-btn" id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="view-projections" role="tabpanel"></section>
+    <section id="view-cashflow" role="tabpanel" hidden></section>
+  </main>
+  <footer id="footNote">Private by design: your data lives only on this device. There is no account, no server and no tracking — the page is not even allowed to make network requests.</footer>
+</div>
+
+<dialog id="bankDialog">
+  <form method="dialog" id="bankForm">
+    <h3>Add a bank / app</h3>
+    <label class="fld"><span>Name</span><input type="text" id="bankName" required maxlength="40" placeholder="e.g. Millennium"></label>
+    <label class="fld"><span>Colour</span><input type="color" id="bankColor" value="#2a78d6"></label>
+    <div class="dialog-actions">
+      <button value="cancel" class="ghost" formnovalidate>Cancel</button>
+      <button value="ok" class="primary">Add</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script src="js/vendor/chart.umd.min.js"></script>
+<script src="js/core/utils.js"></script>
+<script src="js/core/projection.js"></script>
+<script src="js/core/store.js"></script>
+<script src="js/core/chart-plugins.js"></script>
+<script src="js/core/icons.js"></script>
+<script src="js/core/income.js"></script>
+<script src="js/views/overview.js"></script>
+<script src="js/views/projections.js"></script>
+<script src="js/views/cashflow.js"></script>
+<script src="js/app.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>
