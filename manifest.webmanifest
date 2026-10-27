@@ -1,6 +1,6 @@
 {
-  "name": "Finance Tracker",
-  "short_name": "Finance",
+  "name": "Finance App",
+  "short_name": "Finance App",
   "description": "Personal finance: savings & investment projections, income and expenses. All data stays on your device.",
   "start_url": "./index.html",
   "scope": "./",

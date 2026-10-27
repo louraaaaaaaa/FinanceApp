@@ -1,4 +1,4 @@
-# Finance Tracker
+# Finance App
 
 Local-only personal finance app for forecasting savings and investments by account, and tracking monthly income and expenses. Your data stays in this browser's `localStorage`; there are no accounts, analytics, or cloud services.
 

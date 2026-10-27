@@ -16,7 +16,7 @@
   // ---- install button (Chrome/Edge/Android) and a hint for iPhone Safari
   let deferred = null;
   window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; $('installBtn').hidden = false; });
-  window.addEventListener('appinstalled', () => { deferred = null; $('installBtn').hidden = true; FT.toast('Installed — find Finance on your home screen.'); });
+  window.addEventListener('appinstalled', () => { deferred = null; $('installBtn').hidden = true; FT.toast('Installed — find Finance App on your home screen.'); });
   $('installBtn').addEventListener('click', async () => {
     $('dataMenu').open = false;
     if (!deferred) return;
@@ -35,6 +35,6 @@
   } catch (e) {}
   $('shareBtn').addEventListener('click', async () => {
     $('dataMenu').open = false;
-    try { await navigator.share({ files: [backupFile()], title: 'Finance Tracker backup' }); } catch (e) { /* cancelled */ }
+    try { await navigator.share({ files: [backupFile()], title: 'Finance App backup' }); } catch (e) { /* cancelled */ }
   });
 })();

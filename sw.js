@@ -3,7 +3,7 @@
    Strategy: stale-while-revalidate for same-origin GETs (serve the cached copy, refresh it in the
    background, so a new version shows up on the next launch). Bump VERSION on each release to
    drop old caches and re-precache. */
-const VERSION = 'v3.14.0';
+const VERSION = 'v3.14.1';
 const CACHE = `finance-tracker-${VERSION}`;
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/styles.css',

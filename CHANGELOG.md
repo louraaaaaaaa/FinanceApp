@@ -6,6 +6,13 @@ Bump the data `version` and note it here whenever the saved-data shape changes.
 
 ---
 
+## [3.14.1] — 2026-10-27 — Rename to Finance App
+
+### Changed
+- Renamed the app in its interface, metadata, and documentation.
+- Replaced the header euro badge with the app icon from `assets/icons/`.
+- Service-worker cache bumped to `v3.14.1`; saved data shape unchanged.
+
 ## [3.14.0] — 2026-10-27 — App identity refresh and documentation
 
 ### Changed
